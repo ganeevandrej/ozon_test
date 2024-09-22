@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --blue: #005cff;
+  --grey: #ccc;
+  --black: #000;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu Mono", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.block-progress {
+  display: flex;
+  align-items: center;
+}
+
+.setting-progress {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.circle-1 {
+  stroke-width: 10;
+  stroke: var(--grey);
+  fill: none;
+  transform-origin: center;
+}
+
+.circle-2 {
+  stroke-width: 10;
+  stroke: var(--blue);
+  fill: none;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: 0.5s;
+}
+
+.number-field {
+  border: 1px solid var(--black);
+  border-radius: 25px;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 5px 13px;
+  text-align: center;
+  width: 60px;
+  height: 34px;
+}
+
+.label {
+  margin-left: 20px;
+  font-weight: 700;
+}
+
+/* скрываю сртелки у input с type="number"  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* стили для toogle-field */
+.toogle-field {
+  position: relative;
+  display: inline-block;
+  min-width: 60px;
+  height: 34px;
+}
+
+.checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--grey);
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--white);
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--blue);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--blue);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* анимация progress */
+.animate {
+  animation: spin-circle 2s linear forwards;
+}
+
+@keyframes spin-circle {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+/* адаптация под горизонтальную ориентацию экрана  */
+@media (orientation: landscape) {
+  .container {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* адаптация под вертикальную ориентацию экрана  */
+@media (orientation: portrait) {
+  .container {
+    width: 250px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .block-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .setting-progress {
+    margin: auto;
+    padding-left: 30px;
+  }
+}

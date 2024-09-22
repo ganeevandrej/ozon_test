@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Тестовое задание</title>
-</head>
-<body>
-    <div>
-        <p>Heelo world!</p>
+  </head>
+  <body>
+    <div class="root">
+      <div class="container">
+        <h3 class="title">Progress</h3>
+        <div class="content">
+          <div class="block-progress">
+            <svg class="svg" width="150" height="150">
+              <circle class="circle-1" cx="75" cy="75" r="70"></circle>
+              <circle class="circle-2" cx="75" cy="75" r="70"></circle>
+            </svg>
+          </div>
+
+          <div class="setting-progress">
+            <div class="setting-block">
+              <div class="setting-item">
+                <input class="number-field" type="number" />
+                <p class="label">Value</p>
+              </div>
+
+              <div class="setting-item">
+                <label class="toogle-field">
+                  <input class="checkbox" type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
+                <p class="label">Animate</p>
+              </div>
+
+              <div class="setting-item">
+                <label class="toogle-field">
+                  <input class="checkbox" type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
+                <p class="label">Hide</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>
